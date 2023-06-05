@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupData } from '../models/signup.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class SignupService {
 
   constructor(private httpClient: HttpClient) {}
 
-  sendSignup(signup: SignupData) {
-    this.httpClient.post(this.api, signup).subscribe();
+  sendSignup(signup: SignupData): Observable<any> {
+    return this.httpClient.post(this.api, signup);
   }
 }
