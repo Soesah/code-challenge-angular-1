@@ -5,12 +5,12 @@ import { SignupForm } from './signup/components/signup-form/signup-form.componen
 const routes: Routes = [
   {
     title: 'Signup',
-    path: '/signup',
+    path: 'signup',
     component: SignupForm,
   },
   {
-    path: '/',
-    redirectTo: '/signup',
+    path: '**',
+    redirectTo: 'signup',
   },
 ];
 
