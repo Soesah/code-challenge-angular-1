@@ -1,0 +1,44 @@
+@labelSize: 140px;
+
+form {
+  width: 500px;
+  margin: 0 auto;
+  box-shadow: 2px 2px 4px silver;
+  padding: 4em;
+  font-size: 14px;
+  font-family: Verdana;
+  border: solid 1px gray;
+  border-top-color: lightgray;
+  border-left-color: lightgray;
+  border-radius: 4px;
+}
+
+.field {
+  display: flex;
+  margin-bottom: 1em;
+  position: relative;
+
+  label {
+    flex: 1;
+    max-width: @labelSize;
+    position: relative;
+    top: 4px;
+  }
+
+  input {
+    flex: 2;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 4px;
+  }
+}
+
+.buttons {
+  padding-left: @labelSize;
+
+  button {
+    width: 1005;
+    padding: 4px;
+  }
+}

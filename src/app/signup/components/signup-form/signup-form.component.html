@@ -1,14 +1,52 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>FedEx Signup</h2>
   <div class="field">
-    <label for="firstName">Firstname: </label>
-    <input id="firstName" type="text" [formControl]="firstName" />
+    <label for="firstName">Firstname</label>
+    <input id="firstName" type="text" formControlName="firstName" />
+    <warning
+      [control]="loginForm.controls['firstName']"
+      key="required"
+      warning="Firstname is required"
+    />
   </div>
   <div class="field">
-    <label for="lastName">Lastname: </label>
-    <input id="lastName" type="text" [formControl]="lastName" />
+    <label for="lastName">Lastname</label>
+    <input id="lastName" type="text" formControlName="lastName" />
+    <warning
+      [control]="loginForm.controls['lastName']"
+      key="required"
+      warning="Lastname is required"
+    />
   </div>
   <div class="field">
-    <label for="email">Email: </label>
-    <input id="email" type="text" [formControl]="email" />
+    <label for="password">Password</label>
+    <input id="password" type="text" formControlName="password" />
+    <warning
+      [control]="loginForm.controls['password']"
+      key="required"
+      warning="Password is required"
+    />
+    <warning
+      [control]="loginForm.controls['password']"
+      key="minLength"
+      warning="Password should be a minimum of eight characters"
+    />
+    <warning
+      [control]="loginForm.controls['password']"
+      key="lowerAndUpper"
+      warning="Password should contain lower and uppercase letters"
+    />
+    <warning
+      [control]="loginForm.controls['password']"
+      key="noNames"
+      warning="Password should not contain either firstname or lastname."
+    />
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" type="text" formControlName="email" />
+  </div>
+  <div class="buttons">
+    <button type="submit">Sign up</button>
   </div>
 </form>
