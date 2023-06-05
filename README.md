@@ -3,7 +3,7 @@
 - I chose to do my own css. I had some lying around.
 - I used the angular CLI to generate components . It's a lot of code and a lot of files, but such is Angular.
 - I prefer splitting things into smaller components. Large template annoy me. Readability is first on my list of decent code.
--
+- The validations have 1 weird thing. The validator is called `minLength` but writes a `minlength` (all lower) key into the `errors` object.
 
 ## Development server
 
