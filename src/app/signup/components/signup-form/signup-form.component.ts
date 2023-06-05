@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { SignupService } from '../../services/signup.service';
+import { SignupData } from '../../models/signup.model';
 
 @Component({
   selector: 'signup-form',
@@ -7,18 +9,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup-form.component.less'],
 })
 export class SignupForm {
-  public loginForm: FormGroup;
+  public signupForm: FormGroup;
 
-  constructor() {
-    this.loginForm = new FormGroup({
+  constructor(private signupService: SignupService) {
+    this.signupForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        lowerAndUpper(new RegExp('//g')),
+        noNames(this),
+      ]),
+      email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
 
   onSubmit = () => {
-    console.log(this.loginForm.controls);
+    const signup: SignupData = {
+      firstName: this.signupForm.controls['firstName'].value,
+      lastName: this.signupForm.controls['lastName'].value,
+      password: this.signupForm.controls['password'].value,
+      email: this.signupForm.controls['email'].value,
+    };
+    this.signupService.sendSignup(signup);
   };
 }
