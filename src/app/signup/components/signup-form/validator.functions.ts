@@ -12,6 +12,17 @@ export const lowerAndUpper = (
     : { lowerAndUpper: { value: control.value } };
 };
 
+export const theOtherEmail = (
+  control: AbstractControl
+): ValidationErrors | null => {
+  const validEmail = /^[^@]+@[^@]+\.[^@]+$/.test(control.value);
+  return control.value && validEmail
+    ? null
+    : !control.value
+    ? null
+    : { theOtherEmail: { value: control.value } };
+};
+
 export const noNames = (control: AbstractControl) => {
   const form: FormGroup | null = control.parent as FormGroup;
 
