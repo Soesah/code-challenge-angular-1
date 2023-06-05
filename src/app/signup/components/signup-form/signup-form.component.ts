@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from '../../services/signup.service';
 import { SignupData } from '../../models/signup.model';
+import { lowerAndUpper, noNames } from './validator.functions';
 
 @Component({
   selector: 'signup-form',

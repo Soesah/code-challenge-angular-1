@@ -1,50 +1,60 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <h2>FedEx Signup</h2>
   <div class="field">
-    <label for="firstName">Firstname</label>
+    <label for="firstName">Firstname<sup>*</sup></label>
     <input id="firstName" type="text" formControlName="firstName" />
     <warning
-      [control]="loginForm.controls['firstName']"
+      [control]="signupForm.controls['firstName']"
       key="required"
       warning="Firstname is required"
     />
   </div>
   <div class="field">
-    <label for="lastName">Lastname</label>
+    <label for="lastName">Lastname<sup>*</sup></label>
     <input id="lastName" type="text" formControlName="lastName" />
     <warning
-      [control]="loginForm.controls['lastName']"
+      [control]="signupForm.controls['lastName']"
       key="required"
       warning="Lastname is required"
     />
   </div>
   <div class="field">
-    <label for="password">Password</label>
+    <label for="password">Password<sup>*</sup></label>
     <input id="password" type="text" formControlName="password" />
     <warning
-      [control]="loginForm.controls['password']"
+      [control]="signupForm.controls['password']"
       key="required"
       warning="Password is required"
     />
     <warning
-      [control]="loginForm.controls['password']"
+      [control]="signupForm.controls['password']"
       key="minLength"
       warning="Password should be a minimum of eight characters"
     />
     <warning
-      [control]="loginForm.controls['password']"
+      [control]="signupForm.controls['password']"
       key="lowerAndUpper"
       warning="Password should contain lower and uppercase letters"
     />
     <warning
-      [control]="loginForm.controls['password']"
+      [control]="signupForm.controls['password']"
       key="noNames"
       warning="Password should not contain either firstname or lastname."
     />
   </div>
   <div class="field">
-    <label for="email">Email</label>
+    <label for="email">Email<sup>*</sup></label>
     <input id="email" type="text" formControlName="email" />
+    <warning
+      [control]="signupForm.controls['password']"
+      key="required"
+      warning="Password is required"
+    />
+    <warning
+      [control]="signupForm.controls['password']"
+      key="noNames"
+      warning="Please provide a valid email address."
+    />
   </div>
   <div class="buttons">
     <button type="submit">Sign up</button>
