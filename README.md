@@ -1,9 +1,11 @@
 # FedExSignup Code Challenge By Carl Giesberts
 
 - I chose to do my own css. I had some lying around.
-- I used the angular CLI to generate components . It's a lot of code and a lot of files, but such is Angular.
-- I prefer splitting things into smaller components. Large template annoy me. Readability is first on my list of decent code.
+- I used the angular CLI to generate components. It's a lot of code and a lot of files, but such is Angular.
+- I prefer splitting things into smaller components. Large templates annoy me. Readability is first on my list of decent code.
+- I created a seperate module, a service for the request, and a component for the form warnings. This is better for seperation of concerns.
 - The validations have 1 weird thing. The validator is called `minLength` but writes a `minlength` (all lower) key into the `errors` object.
+- Tried using `Validators.email`, wasn't impressed. Used a regular expression with a bit more meaningful validation.
 
 ## Development server
 
