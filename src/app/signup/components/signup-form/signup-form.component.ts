@@ -29,6 +29,10 @@ export class SignupForm implements OnInit {
   }
 
   onSubmit = () => {
+    if (!this.validate()) {
+      return;
+    }
+
     const signup: SignupData = {
       firstName: this.signupForm.controls['firstName'].value,
       lastName: this.signupForm.controls['lastName'].value,
@@ -37,4 +41,13 @@ export class SignupForm implements OnInit {
     };
     this.signupService.sendSignup(signup).subscribe();
   };
+
+  validate(): boolean {
+    this.signupForm.controls['firstName'].updateValueAndValidity();
+    this.signupForm.controls['lastName'].updateValueAndValidity();
+    this.signupForm.controls['password'].updateValueAndValidity();
+    this.signupForm.controls['email'].updateValueAndValidity();
+
+    return this.signupForm.valid;
+  }
 }
