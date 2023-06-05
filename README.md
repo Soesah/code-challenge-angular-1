@@ -1,6 +1,6 @@
-# FedExSignup
+# FedExSignup By Carl Giesberts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4 for the Fex Ex Code challange.
 
 ## Development server
 
