@@ -11,8 +11,6 @@ export class SignupService {
   constructor(private httpClient: HttpClient) {}
 
   sendSignup(signup: SignupData) {
-    console.log(signup);
-
-    // this.httpClient.post(this.api, signup);
+    this.httpClient.post(this.api, signup).subscribe();
   }
 }

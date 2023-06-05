@@ -49,7 +49,6 @@ export const noNames = (control: AbstractControl) => {
       ? { noNames: true }
       : null;
 
-  console.log({ password, firstName, lastName, error });
   form.controls['password'].setErrors(error);
   return error;
 };
