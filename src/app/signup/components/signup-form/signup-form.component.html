@@ -1,1 +1,14 @@
-<p>signup-form works!</p>
+<form>
+  <div class="field">
+    <label for="firstName">Firstname: </label>
+    <input id="firstName" type="text" [formControl]="firstName" />
+  </div>
+  <div class="field">
+    <label for="lastName">Lastname: </label>
+    <input id="lastName" type="text" [formControl]="lastName" />
+  </div>
+  <div class="field">
+    <label for="email">Email: </label>
+    <input id="email" type="text" [formControl]="email" />
+  </div>
+</form>
