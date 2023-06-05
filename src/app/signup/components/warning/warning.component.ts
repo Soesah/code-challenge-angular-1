@@ -13,4 +13,12 @@ export class Warning {
   public key!: string;
   @Input()
   public warning!: string;
+
+  get isInvalid() {
+    return (
+      this.control.invalid &&
+      this.control.errors?.[this.key] &&
+      (this.control.dirty || this.control.touched)
+    );
+  }
 }

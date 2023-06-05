@@ -20,7 +20,7 @@
   </div>
   <div class="field">
     <label for="password">Password<sup>*</sup></label>
-    <input id="password" type="text" formControlName="password" />
+    <input id="password" type="password" formControlName="password" />
     <warning
       [control]="signupForm.controls['password']"
       key="required"
@@ -28,7 +28,7 @@
     />
     <warning
       [control]="signupForm.controls['password']"
-      key="minLength"
+      key="minlength"
       warning="Password should be a minimum of eight characters"
     />
     <warning
@@ -46,13 +46,13 @@
     <label for="email">Email<sup>*</sup></label>
     <input id="email" type="text" formControlName="email" />
     <warning
-      [control]="signupForm.controls['password']"
+      [control]="signupForm.controls['email']"
       key="required"
-      warning="Password is required"
+      warning="Email is required"
     />
     <warning
-      [control]="signupForm.controls['password']"
-      key="noNames"
+      [control]="signupForm.controls['email']"
+      key="email"
       warning="Please provide a valid email address."
     />
   </div>

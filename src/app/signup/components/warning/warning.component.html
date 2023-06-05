@@ -1,6 +1,3 @@
-<div
-  *ngIf="control.invalid && (control.dirty || control.touched)"
-  [class]="['warning', key]"
->
-  <div *ngIf="control.errors?.[key]" class="field-warning">{{ warning }}.</div>
+<div *ngIf="isInvalid" [class]="['warning', key]">
+  <div class="field-warning">{{ warning }}.</div>
 </div>

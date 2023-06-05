@@ -19,8 +19,8 @@ export class SignupForm {
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
-        lowerAndUpper(new RegExp('//g')),
-        noNames(this),
+        lowerAndUpper,
+        noNames,
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
     });
