@@ -11,6 +11,7 @@ import { lowerAndUpper, noNames, theOtherEmail } from './validator.functions';
 })
 export class SignupForm implements OnInit {
   public signupForm!: FormGroup;
+  public showWarning: boolean = false;
 
   constructor(private signupService: SignupService) {}
 
@@ -43,11 +44,21 @@ export class SignupForm implements OnInit {
   };
 
   validate(): boolean {
-    this.signupForm.controls['firstName'].updateValueAndValidity();
-    this.signupForm.controls['lastName'].updateValueAndValidity();
-    this.signupForm.controls['password'].updateValueAndValidity();
-    this.signupForm.controls['email'].updateValueAndValidity();
+    this.showWarning = false;
 
+    this.validateField('firstName');
+    this.validateField('lastName');
+    this.validateField('password');
+    this.validateField('email');
+
+    this.showWarning = !this.signupForm.valid;
     return this.signupForm.valid;
+  }
+
+  validateField(name: string) {
+    const field = this.signupForm.controls[name];
+    field.updateValueAndValidity();
+    field.markAsDirty();
+    field.markAsTouched();
   }
 }

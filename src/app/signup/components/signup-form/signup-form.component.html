@@ -2,7 +2,12 @@
   <h2>FedEx Signup</h2>
   <div class="field">
     <label for="firstName">Firstname<sup>*</sup></label>
-    <input id="firstName" type="text" formControlName="firstName" />
+    <input
+      id="firstName"
+      type="text"
+      formControlName="firstName"
+      (change)="validate()"
+    />
     <warning
       [control]="signupForm.controls['firstName']"
       key="required"
@@ -11,7 +16,12 @@
   </div>
   <div class="field">
     <label for="lastName">Lastname<sup>*</sup></label>
-    <input id="lastName" type="text" formControlName="lastName" />
+    <input
+      id="lastName"
+      type="text"
+      formControlName="lastName"
+      (change)="validate()"
+    />
     <warning
       [control]="signupForm.controls['lastName']"
       key="required"
@@ -20,7 +30,12 @@
   </div>
   <div class="field">
     <label for="password">Password<sup>*</sup></label>
-    <input id="password" type="password" formControlName="password" />
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      (change)="validate()"
+    />
     <warning
       [control]="signupForm.controls['password']"
       key="required"
@@ -44,7 +59,12 @@
   </div>
   <div class="field">
     <label for="email">Email<sup>*</sup></label>
-    <input id="email" type="text" formControlName="email" />
+    <input
+      id="email"
+      type="text"
+      formControlName="email"
+      (change)="validate()"
+    />
     <warning
       [control]="signupForm.controls['email']"
       key="required"
@@ -56,7 +76,10 @@
       warning="Please provide a valid email address."
     />
   </div>
+  <p *ngIf="showWarning">Please fill out the form correctly.</p>
   <div class="buttons">
-    <button type="submit">Sign up</button>
+    <button type="submit" [attr.disabled]="showWarning ? true : null">
+      Sign up
+    </button>
   </div>
 </form>

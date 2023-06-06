@@ -21,6 +21,10 @@ form {
     max-width: @labelSize;
     position: relative;
     top: 2px;
+
+    sup {
+      color: gray;
+    }
   }
 
   input {
@@ -28,7 +32,19 @@ form {
     width: 100%;
     font-family: inherit;
     font-size: inherit;
-    padding: 4px;
+    padding: 6px;
+    border: solid 1px gray;
+    border-bottom-color: lightgray;
+    border-right-color: lightgray;
+    background-color: rgb(249, 239, 219);
+    border-radius: 2px;
+    outline: none;
+
+    &:focus {
+      border: solid 1px black;
+      border-bottom-color: gray;
+      border-right-color: gray;
+    }
   }
 }
 
@@ -36,7 +52,23 @@ form {
   padding-left: @labelSize;
 
   button {
-    width: 1005;
+    width: 100%;
     padding: 4px;
+    background-color: rgb(129, 161, 121);
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(89, 136, 78);
+    }
+
+    &[disabled] {
+      background-color: rgb(148, 148, 148);
+      cursor: default;
+    }
   }
 }
