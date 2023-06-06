@@ -76,7 +76,8 @@
       warning="Please provide a valid email address"
     />
   </div>
-  <p *ngIf="showWarning">Please fill out the form correctly.</p>
+  <p *ngIf="showWarning" class="alert">Please fill out the form correctly.</p>
+  <p *ngIf="showSuccess" class="info">Your data has been sent successfully.</p>
   <div class="buttons">
     <button type="submit" [attr.disabled]="showWarning ? true : null">
       Sign up

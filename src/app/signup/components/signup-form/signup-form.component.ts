@@ -12,6 +12,7 @@ import { lowerAndUpper, noNames, theOtherEmail } from './validator.functions';
 export class SignupForm implements OnInit {
   public signupForm!: FormGroup;
   public showWarning: boolean = false;
+  public showSuccess: boolean = false;
 
   constructor(private signupService: SignupService) {}
 
@@ -40,7 +41,9 @@ export class SignupForm implements OnInit {
       password: this.signupForm.controls['password'].value,
       email: this.signupForm.controls['email'].value,
     };
-    this.signupService.sendSignup(signup).subscribe();
+    this.signupService.sendSignup(signup).subscribe(() => {
+      this.showSuccess = true;
+    });
   };
 
   validate(): boolean {
