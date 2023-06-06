@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from '../../services/signup.service';
 import { SignupData } from '../../models/signup.model';
 import { lowerAndUpper, noNames, theOtherEmail } from './validator.functions';
+import { Warning } from 'src/app/common/components/warning/warning.component';
 
 @Component({
   selector: 'signup-form',

@@ -1,10 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 
 @Component({
+  standalone: true,
   selector: 'warning',
   templateUrl: './warning.component.html',
   styleUrls: ['./warning.component.less'],
+  imports: [CommonModule],
 })
 export class Warning {
   @Input({ required: true })
