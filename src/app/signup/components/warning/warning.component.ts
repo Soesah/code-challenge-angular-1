@@ -7,11 +7,11 @@ import { AbstractControl } from '@angular/forms';
   styleUrls: ['./warning.component.less'],
 })
 export class Warning {
-  @Input()
+  @Input({ required: true })
   public control!: AbstractControl<any, any>;
-  @Input()
+  @Input({ required: true })
   public key!: string;
-  @Input()
+  @Input({ required: true })
   public warning!: string;
 
   get isInvalid() {

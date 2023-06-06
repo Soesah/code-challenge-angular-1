@@ -30,7 +30,7 @@ export class SignupForm implements OnInit {
     });
   }
 
-  onSubmit = () => {
+  public onSubmit = () => {
     if (!this.validate()) {
       return;
     }
@@ -46,21 +46,21 @@ export class SignupForm implements OnInit {
     });
   };
 
-  validate(): boolean {
+  public validate(): boolean {
     this.showWarning = false;
 
-    this.validateControl('firstName');
-    this.validateControl('lastName');
-    this.validateControl('password');
-    this.validateControl('email');
+    ['firstName', 'lastName', 'password', 'email'].map((key) =>
+      this.validateControl(key)
+    );
 
     this.showWarning = !this.signupForm.valid;
     return this.signupForm.valid;
   }
 
-  validateControl(key: string) {
+  private validateControl(key: string) {
     const control = this.signupForm.controls[key];
 
+    // ensure validation shows
     control.updateValueAndValidity();
     control.markAsDirty();
     control.markAsTouched();
