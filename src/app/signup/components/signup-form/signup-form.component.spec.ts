@@ -88,4 +88,137 @@ describe('SignupForm', () => {
 
     expect(signupMock.sendSignup).toHaveBeenCalled();
   });
+
+  it('should show required warning for firstname field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: '',
+      lastName: 'Doe',
+      password: 'JDPassword',
+      email: 'john@doe.com',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Firstname is required'
+    );
+  });
+
+  it('should show required warning for lastname field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: '',
+      password: 'JDPassword',
+      email: 'john@doe.com',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Lastname is required'
+    );
+  });
+
+  it('should show required warning for password field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      password: '',
+      email: 'john@doe.com',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Password is required'
+    );
+  });
+
+  it('should show minLength warning for password field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      password: 'aaAADD',
+      email: 'john@doe.com',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Password should be a minimum of eight characters'
+    );
+  });
+
+  it('should show noNames warning for password field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      password: 'JohnDpassword',
+      email: 'john@doe.com',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Password should not contain either firstname or lastname'
+    );
+  });
+
+  it('should show required warning for email field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      password: 'JDpassword',
+      email: '',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Email is required'
+    );
+  });
+
+  it('should show valid email warning for email field', () => {
+    const fixture = TestBed.createComponent(SignupForm);
+    fixture.detectChanges();
+
+    fixture.debugElement.componentInstance.signupForm.patchValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      password: 'JDpassword',
+      email: 'John',
+    });
+
+    const compiled = fixture.nativeElement as HTMLElement;
+    compiled.querySelector('button')?.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('.warning')?.textContent).toContain(
+      'Please provide a valid email address.'
+    );
+  });
 });
