@@ -46,19 +46,20 @@ export class SignupForm implements OnInit {
   validate(): boolean {
     this.showWarning = false;
 
-    this.validateField('firstName');
-    this.validateField('lastName');
-    this.validateField('password');
-    this.validateField('email');
+    this.validateControl('firstName');
+    this.validateControl('lastName');
+    this.validateControl('password');
+    this.validateControl('email');
 
     this.showWarning = !this.signupForm.valid;
     return this.signupForm.valid;
   }
 
-  validateField(name: string) {
-    const field = this.signupForm.controls[name];
-    field.updateValueAndValidity();
-    field.markAsDirty();
-    field.markAsTouched();
+  validateControl(key: string) {
+    const control = this.signupForm.controls[key];
+
+    control.updateValueAndValidity();
+    control.markAsDirty();
+    control.markAsTouched();
   }
 }
