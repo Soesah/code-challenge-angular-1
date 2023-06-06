@@ -7,7 +7,7 @@
 - The validations have 1 weird thing. The validator is called `minLength` but writes a `minlength` (all lower) key into the `errors` object.
 - Tried using `Validators.email`, wasn't impressed. Used a regular expression with a bit more meaningful validation.
 - I cleaned up the code a bit. Using a few of the new Angular features. Required inputs is nice. Standalone components is pretty good, instead of a bloated CommonComponents module.
-
+- The PDF has an example post which omits the password field. I added that to the request.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
