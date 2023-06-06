@@ -10,7 +10,7 @@ describe('Warning', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [Warning],
+      imports: [Warning],
     });
     fixture = TestBed.createComponent(Warning);
     component = fixture.componentInstance;

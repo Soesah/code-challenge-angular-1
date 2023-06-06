@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SignupForm } from './signup-form.component';
-import { Warning } from '../warning/warning.component';
+import { Warning } from '../../../common/components/warning/warning.component';
 import { SignupService } from '../../services/signup.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
@@ -16,8 +16,8 @@ describe('SignupForm', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule],
-      declarations: [SignupForm, Warning],
+      imports: [ReactiveFormsModule, Warning],
+      declarations: [SignupForm],
       providers: [{ provide: SignupService, useValue: signupMock }],
     });
     fixture = TestBed.createComponent(SignupForm);

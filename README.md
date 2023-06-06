@@ -6,6 +6,7 @@
 - I created a seperate module, a service for the request, and a component for the form warnings. This is better for seperation of concerns.
 - The validations have 1 weird thing. The validator is called `minLength` but writes a `minlength` (all lower) key into the `errors` object.
 - Tried using `Validators.email`, wasn't impressed. Used a regular expression with a bit more meaningful validation.
+- I cleaned up the code a bit. Using a few of the new Angular features. Required inputs is nice. Standalone components is pretty good, instead of a bloated CommonComponents module.
 
 ## Development server
 
